@@ -1,15 +1,17 @@
+import dotenv from "dotenv/config";
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+import paymentRoutes from "./src/routes/paymentRoutes.js";
 
-dotenv.config();
+
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:5173" }));
+app.use("/api/payments",paymentRoutes)
 
 // Basic route
 app.get("/", (req, res) => {
