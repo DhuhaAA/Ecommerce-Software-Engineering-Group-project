@@ -113,6 +113,7 @@ button.white {
 
 body {
   width: 100%;
+  background-color: #7aa6b8;
 }
 
 /* Navigation Bar */
@@ -121,7 +122,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 80px;
-  background: #e3e6f3;
+  background: #cdcdcd;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
   position: sticky;
@@ -151,7 +152,7 @@ body {
 
 #navbar li a:hover,
 #navbar li a.active {
-  color: #088178;
+  color: #81d1f2;
 }
 
 #navbar li a.active::after,
@@ -159,7 +160,7 @@ body {
   content: "";
   width: 30%;
   height: 2px;
-  background: #088178;
+  background: #81d1f2;
   position: absolute;
   bottom: -4px;
   left: 20px;
@@ -176,11 +177,11 @@ body {
 
 /* Home Page */
 #hero {
-  background-image: url("img/hero1.png");
+  background-image: url("img/banner/hero3.png");
   height: 90vh;
   width: 100%;
   background-size: cover;
-  background-position: top 25% right 0;
+  background-position: top 100% right 0;
   padding: 0 80px;
   display: flex;
   flex-direction: column;
@@ -190,15 +191,24 @@ body {
 
 #hero h4 {
   padding-bottom: 15px;
+  color: #cdcdcd;
 }
+
+#hero h2 {
+  color: #cdcdcd;
+}
+
 #hero h1 {
-  color: #088178;
+  color: #cdcdcd;
+}
+#hero p {
+  color: #cdcdcd;
 }
 
 #hero button {
-  background-image: url("img/button.png");
+  background-image: url(img/banner/button_resize.png);
   background-color: transparent;
-  color: #088178;
+  color: #81d1f2;
   border: 0;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
@@ -347,7 +357,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("img/banner/b2.jpg");
+  background-image: url(img/banner/b2.jpg);
   width: 100%;
   height: 40vh;
   background-size: cover;
@@ -385,7 +395,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("img/banner/b1.jpg");
+  background-image: url(img/banner/b1.jpg);
   width: 580px;
   height: 50vh;
   background-size: cover;
@@ -394,7 +404,7 @@ body {
 }
 
 #sm-banner .banner-box2 {
-  background-image: url("img/banner/b2.jpg");
+  background-image: url(img/banner/b2.jpg);
 }
 
 #sm-banner h4 {
@@ -467,10 +477,15 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  background-image: url("img/banner/b1.jpg");
+  background-image: url("img/banner/newsletterbanner.png");
   background-repeat: no-repeat;
   background-position: 20% 30%;
   background-color: #041e42;
+}
+
+#newsletter h4 {
+  color: #81d1f2;
+  background-color: #cdcdcd;
 }
 
 #newsletter h2 {
@@ -483,6 +498,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   color: #818ea0;
+  background-color: #cdcdcd;
 }
 
 #newsletter p span {
@@ -738,8 +754,92 @@ footer .copyright {
   font-size: 70px;
   font-weight: 700;
   color: #c9cbce;
+  /* z-index: -9; */
 }
 
+/* About page */
+#page-header.about-header {
+  background-image: url("img/banner/b1.jpg");
+}
+
+#about-head {
+  display: flex;
+  align-items: center;
+}
+
+#about-head img {
+  width: 50%;
+  height: auto;
+}
+
+#about-head div {
+  padding-left: 40px;
+}
+
+#about-app {
+  text-align: center;
+}
+
+#about-app video {
+  width: 70%;
+  height: 100%;
+  margin: 30px auto 0 auto;
+}
+
+#about-app .video .video {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* Authentication Page */
+.auth-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.auth-form button {
+  background: #088178;
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background: #066d66;
+}
+
+.auth-container p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.auth-container a {
+  color: #088178;
+  font-weight: 600;
+}
 /* Start Media Query */
 /* ipad settings */
 @media (max-width: 799px) {
@@ -837,6 +937,7 @@ footer .copyright {
     width: 70%;
   }
 }
+
 /* mobile settings */
 @media (max-width: 477px) {
   .section-p1 {
@@ -936,5 +1037,10 @@ footer .copyright {
 
   #blog .blog-details {
     width: 100%;
+  }
+
+  /* about page */
+  #about-head {
+    flex-direction: column;
   }
 }
