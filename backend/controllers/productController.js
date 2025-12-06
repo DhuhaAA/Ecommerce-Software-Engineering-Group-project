@@ -15,9 +15,8 @@ export const getProductsbyID = async (req, res) => {
     if(!productID){
         res.status(500).json({message:"Server error retrieving product."})
     }
-
     try{
-        const productByID = await Product.findById()
+        const productByID = await Product.findById(productID)
         res.status(200).json(productByID)
     }catch{
         res.status(500).json({message:"Server error retrieving product."})
