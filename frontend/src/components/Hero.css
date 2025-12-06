@@ -1,0 +1,143 @@
+/* src/components/Hero.css */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
+  
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .hero-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
+  }
+  
+  .hero-content {
+    position: relative;
+    color: #fff;
+    max-width: 480px;
+    margin-left: 4rem;
+    z-index: 1;
+  }
+  
+  .hero-tagline {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  .hero-btn {
+    background: #ff4fa0;
+    color: #fff;
+    border: none;
+    padding: 0.85rem 2.4rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  
+  .hero-btn:hover {
+    transform: translateY(-2px);
+    background: #ff3a93;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  }
+  
+  .hero-dots {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 2;
+  }
+  
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.2s ease, background 0.2s ease;
+  }
+  
+  .hero-dot.active {
+    width: 22px;
+    background: #ff4fa0;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .hero-content {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-slider {
+      height: 65vh;
+    }
+
+    #hero {
+        text-align: center;
+        padding: 60px 0;
+      }
+      
+      .hero-logo {
+        width: 160px;     /* adjust this size */
+        height: auto;
+        display: block;
+        margin: 0 auto 20px auto;
+        object-fit: contain;
+      }
+      
+
+    
+  }
+  
