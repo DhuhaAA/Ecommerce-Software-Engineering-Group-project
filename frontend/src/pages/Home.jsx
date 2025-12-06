@@ -4,8 +4,8 @@ import Features from "../components/Features.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import Newsletter from "../components/Newsletter.jsx";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
-const PRODUCTS_ENDPOINT = `${API_BASE_URL}/api/products`;
+const API_BASE_URL = "http://10.0.0.17:5000"; // TODO# REMOVE SOON
+const PRODUCTS_ENDPOINT = `${API_BASE_URL}/products`;
 
 export default function Home() {
   const [products, setProducts] = useState([]);
