@@ -16,7 +16,7 @@ export default function Home() {
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
   
-        // 1. Clean prices
+
         const cleaned = data
           .map((p) => {
             const cleanedPrice = String(p.price || "")
@@ -28,13 +28,13 @@ export default function Home() {
               _cleanPrice: Number.isFinite(num) && num > 0 ? num : null,
             };
           })
-          // 2. remove bad or $0 items
+        
           .filter((p) => p._cleanPrice !== null);
   
-        // 3. Randomize the order
+        
         const shuffled = cleaned.sort(() => Math.random() - 0.5);
   
-        // 4. Pick the first 8
+        
         const featured = shuffled.slice(0, 8);
   
         setProducts(featured);

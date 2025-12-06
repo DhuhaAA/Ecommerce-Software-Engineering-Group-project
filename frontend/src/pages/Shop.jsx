@@ -6,7 +6,7 @@ const API_BASE_URL = "http://10.0.0.17:5000";
 const PRODUCTS_ENDPOINT = `${API_BASE_URL}/products`;
 const PRODUCTS_PER_PAGE = 16;
 
-// Helper: which page numbers to show
+
 function getPageNumbers(current, total, maxShown = 5) {
   if (total <= maxShown) {
     return Array.from({ length: total }, (_, i) => i + 1);
@@ -32,7 +32,7 @@ export default function Shop() {
   const [allProducts, setAllProducts] = useState([]);
   const [page, setPage] = useState(1);
 
-  // NEW: category state
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
 
@@ -43,7 +43,6 @@ export default function Shop() {
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
   
-        // 1. Clean prices
         const cleaned = (data || []).map((p) => {
           const raw = String(p.price || "").replace(/[^0-9.]/g, "").trim();
           const numericPrice = Number(raw);
@@ -57,16 +56,15 @@ export default function Shop() {
           };
         });
   
-        // 2. Remove invalid || zero price
         const filtered = cleaned.filter((p) => p._cleanPrice !== null);
   
-        // 3. Randomize order
+
         const randomized = filtered.sort(() => Math.random() - 0.5);
   
-        // Set final list
+
         setAllProducts(randomized);
   
-        // Build unique categories from DB products (but only from valid items)
+
         const uniqueCategories = Array.from(
           new Set(
             randomized
@@ -85,7 +83,6 @@ export default function Shop() {
   }, []);
   
 
-  // Filter products by selected category BEFORE pagination
   const filteredProducts =
     selectedCategory === "All"
       ? allProducts
@@ -98,7 +95,6 @@ export default function Shop() {
   const start = (page - 1) * PRODUCTS_PER_PAGE;
   const current = filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
 
-  // ---------- inline styles ----------
   const pageHeaderStyle = {
     padding: "1.5rem 0",
     background: "#0d7f73",
@@ -169,7 +165,7 @@ export default function Shop() {
     opacity: 0.4,
     cursor: "default",
   };
-  // -----------------------------------
+  
 
   return (
     <>
