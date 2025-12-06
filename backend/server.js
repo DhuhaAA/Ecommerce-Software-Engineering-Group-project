@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import productRoutes from "./routes/productRoute.js";
+import authRoutes from "./routes/auth.js";
 import cors from "cors";
 import connectDB from "./config/db.js";
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // API routes
 app.use("/api/products", productRoutes);
+app.use("/api/users", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
