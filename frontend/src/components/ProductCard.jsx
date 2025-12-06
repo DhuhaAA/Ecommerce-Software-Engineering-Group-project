@@ -13,14 +13,14 @@ export default function ProductCard({ product }) {
 
   const { _id, id, category, name, image_link, price } = product;
 
-  const productId = _id || id; // <-- handle both backend styles
+  const productId = _id || id;
 
   const handleOpen = () => {
-    if (productId) navigate(`/product/${productId}`);
+    if (productId) navigate(`/products/${productId}`);
   };
 
   const handleAdd = (e) => {
-    e.stopPropagation(); // Stop click from opening product page
+    e.stopPropagation();
     addToCart(product, 1);
   };
 

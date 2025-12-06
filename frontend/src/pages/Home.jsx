@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Hero from "../components/Hero.jsx";
-import Features from "../components/Features.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import Newsletter from "../components/Newsletter.jsx";
 
@@ -52,8 +51,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
-
       <section id="product1" className="section-p1">
         <h2>Featured Products</h2>
         <p>Save big on these products below</p>

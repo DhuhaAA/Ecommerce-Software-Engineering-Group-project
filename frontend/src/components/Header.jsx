@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <section id="header">
       <Link to="/">
-        <img src="/img/logo2.png" className="logo" alt="Logo" />
+        <img src="/assets/hero/img/company-logo." className="logo" alt="Logo" />
       </Link>
 
       <div>

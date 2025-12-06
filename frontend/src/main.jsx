@@ -1,8 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
-import "./style.css";   // main ecommerce styling
-// import "./index.css"; // optional – comment out if it breaks layout
+import "./style.css"; 
 
 import { CartProvider } from "./context/CartContext.jsx";
 
