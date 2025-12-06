@@ -11,17 +11,23 @@ export const getAllProducts = async (req, res) => {
 }
 
 export const getProductsbyID = async (req, res) => {
-    const productID = req.params.id
-    if(!productID){
-        res.status(500).json({message:"Server error retrieving product."})
+    const { id } = req.params;
+    try {
+      const productByID = await Product.findById(id);
+  
+      if (!productByID) {
+        return res.status(404).json({ message: "Product not found." });
+      }
+  
+      return res.status(200).json(productByID);
+    } catch (err) {
+      console.error("Error fetching product by ID:", err);
+      return res
+        .status(500)
+        .json({ message: "Server error retrieving product." });
     }
-    try{
-        const productByID = await Product.findById(productID)
-        res.status(200).json(productByID)
-    }catch{
-        res.status(500).json({message:"Server error retrieving product."})
-    }
-}
+  };
+  
 
 export const productsFilterBy = async (req, res) => {
     filteredWord = req.params.filteredBy
