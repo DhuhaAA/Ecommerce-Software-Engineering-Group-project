@@ -1,0 +1,38 @@
+#!/bin/sh
+
+readonly mongo_uri=$1
+readonly fake_api=$2
+readonly docker_image="import-data" 
+readonly docker_container="import-data-container"
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Pass in mango url or fake api"
+    exit 1
+fi
+
+
+build_docker(){
+    docker build \
+    --build-arg MONGO_URI="${mongo_uri}" \
+    --build-arg FAKE_API="${fake_ip}" \
+    -t ${docker_image} .
+}
+
+run_docker(){
+    docker run \
+    --name import-data-container \
+    -e MONGO_URI="${mongo_uri}" \
+    -e FAKE_API="${fake_api}" \
+    import-data
+}
+
+remove_docker(){
+    docker rm -f "$docker_container"
+}
+
+
+build_docker
+run_docker
+remove_docker
+
+
+

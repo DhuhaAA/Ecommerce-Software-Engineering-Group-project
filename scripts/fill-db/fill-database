@@ -1,0 +1,27 @@
+#!/bin/sh
+
+readonly workspace="/home/workspace"
+readonly tools_dir="${workspace}/mongodb-database-tools-ubuntu2204-x86_64-100.13.0/bin"
+
+curl_data() {
+    curl -sS "$FAKE_API"
+}
+
+
+mongo_import(){
+curl_data | "$tools_dir/mongoimport" \
+  --uri "$MONGO_URI" \
+  --db items \
+  --collection products \
+  --jsonArray
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to Import"
+        exit 1
+    else
+        echo "Successfully Imported"
+    fi
+}
+
+mongo_import
+
