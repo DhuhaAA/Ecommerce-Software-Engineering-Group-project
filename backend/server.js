@@ -13,7 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 // API routes
-app.use("/api/products", productRoutes);
+app.use("/products", productRoutes);
+// app.use("/account", accountRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
