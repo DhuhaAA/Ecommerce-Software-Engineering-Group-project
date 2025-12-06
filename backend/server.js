@@ -2,8 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import productRoutes from "./src/routes/productRoute.js";
 import paymentRoutes from "./src/routes/paymentRoutes.js";
-import productRoutes from "./routes/productRoute.js";
-import authRoutes from "./routes/auth.js";
+import authRoutes from "./src/routes/auth.js";
 import cors from "cors";
 import connectDB from "./src/config/db.js";
 

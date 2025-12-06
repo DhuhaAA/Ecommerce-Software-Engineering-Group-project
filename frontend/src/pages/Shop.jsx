@@ -96,11 +96,15 @@ export default function Shop() {
   const current = filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
 
   const pageHeaderStyle = {
-    padding: "1.5rem 0",
-    background: "#0d7f73",
+    padding: "3rem 0",
+    backgroundImage: `url('/assets/hero/img/image-3.png')`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
     textAlign: "center",
     color: "white",
   };
+  
 
   const categoryContainerStyle = {
     display: "flex",
