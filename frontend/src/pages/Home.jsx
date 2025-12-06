@@ -16,17 +16,38 @@ export default function Home() {
         const res = await fetch(PRODUCTS_ENDPOINT);
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
-        // sort by price asc and take first 8 like "featured"
-        const featured = [...data]
-          .sort((a, b) => (a.price || 0) - (b.price || 0))
-          .slice(0, 8);
+  
+        // 1. Clean prices
+        const cleaned = data
+          .map((p) => {
+            const cleanedPrice = String(p.price || "")
+              .replace(/[^0-9.]/g, "")
+              .trim();
+            const num = Number(cleanedPrice);
+            return {
+              ...p,
+              _cleanPrice: Number.isFinite(num) && num > 0 ? num : null,
+            };
+          })
+          // 2. remove bad or $0 items
+          .filter((p) => p._cleanPrice !== null);
+  
+        // 3. Randomize the order
+        const shuffled = cleaned.sort(() => Math.random() - 0.5);
+  
+        // 4. Pick the first 8
+        const featured = shuffled.slice(0, 8);
+  
         setProducts(featured);
       } catch (err) {
         console.error(err);
       }
     }
+  
     fetchProducts();
   }, []);
+  
+  
 
   return (
     <>
@@ -38,7 +59,7 @@ export default function Home() {
         <p>Save big on these products below</p>
         <div className="pro-container">
           {products.map((p) => (
-            <ProductCard key={p._id || p.name} product={p} />
+            <ProductCard key={p.id} product={p} />
           ))}
         </div>
       </section>

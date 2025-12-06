@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "http://10.0.0.17:5000";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ export default function ProductDetails() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/products/${id}`);
+        const res = await fetch(`${API_BASE_URL}/products/${id}`);
         if (!res.ok) throw new Error("Failed to fetch product");
         const data = await res.json();
         setProduct(data);

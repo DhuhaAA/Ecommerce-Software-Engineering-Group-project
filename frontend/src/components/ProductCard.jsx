@@ -11,20 +11,28 @@ export default function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  const { _id, category, name, image, price } = product;
+  const { _id, id, category, name, image_link, price } = product;
+
+  const productId = _id || id; // <-- handle both backend styles
 
   const handleOpen = () => {
-    if (_id) navigate(`/product/${_id}`);
+    if (productId) navigate(`/product/${productId}`);
   };
 
   const handleAdd = (e) => {
-    e.stopPropagation();
+    e.stopPropagation(); // Stop click from opening product page
     addToCart(product, 1);
   };
 
   return (
-    <div className="pro" onClick={handleOpen}>
-      <img src={image || "/img/products/f1.jpg"} alt={name || "Product"} />
+    <div className="pro" onClick={handleOpen} style={{ cursor: "pointer" }}>
+      <img
+        src={image_link}
+        alt={name || "Product"}
+        onClick={handleOpen}
+        style={{ cursor: "pointer" }}
+      />
+
       <div className="des">
         <span>{category || "brand"}</span>
         <h5>{name || "Description Item"}</h5>
@@ -37,6 +45,7 @@ export default function ProductCard({ product }) {
         </div>
         <h4>{formatPrice(price)}</h4>
       </div>
+
       <button className="cart" onClick={handleAdd}>
         <i className="fal fa-shopping-cart"></i>
       </button>

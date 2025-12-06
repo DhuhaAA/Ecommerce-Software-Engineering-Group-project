@@ -1,12 +1,16 @@
 export default function Features() {
     const items = [
-      { img: "/img/features/truck.png", label: "Free Shipping" },
-      { img: "/img/features/shippingbox.png", label: "Online Order" },
-      { img: "/img/features/pricetag.png", label: "Save Money" },
-      { img: "/img/features/star.png", label: "Promotions" },
-      { img: "/img/features/hat.png", label: "Happy Sell" },
-      { img: "/img/features/recycle.png", label: "24/7 Support" },
+      { img: "../assets/features/truck.png", label: "Free Shipping" },
+      { img: "../assets/features/shippingbox.png", label: "Online Order" },
+      { img: "../assets/features/pricetag.png", label: "Save Money" },
+      { img: "../assets/features/star.png", label: "Promotions" },
+      { img: "../assets/features/hat.png", label: "Happy Sell" },
+      { img: "../assets/features/recycle.png", label: "24/7 Support" },
     ];
+
+    function parseItem(){
+        
+    }
   
     return (
       <section id="feature" className="section-p1">
