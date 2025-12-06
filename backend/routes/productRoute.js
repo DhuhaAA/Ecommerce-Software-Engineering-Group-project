@@ -1,12 +1,14 @@
 import express from "express";
 import Product from "../models/productModel.js";
+import { getAllProducts } from "../controllers/productController.js";
+import { getProductsbyID } from "../controllers/productController.js";
 const router = express.Router();
 
 export { router };
 
-router.get("/", async (req, res) => {
-  const products = await Product.find().sort({ createdAt: -1 });
-  res.json(products);
-});
+router.route("/").get(getAllProducts)
+router.route("/:id").get(getProductsbyID)
+
+
 
 export default router;

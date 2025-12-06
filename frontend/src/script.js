@@ -20,8 +20,8 @@ if (close) {
 // =========================
 // Product / API helpers
 // =========================
-const API_BASE_URL = "http://127.0.0.1:8000";
-const PRODUCTS_ENDPOINT = `${API_BASE_URL}/api/products`;
+const API_BASE_URL = process.env.BACKEND_SERVER;
+const PRODUCTS_ENDPOINT = `${BACKEND_SERVER}`;
 
 // Fetch all products from backend
 async function fetchAllProducts() {
